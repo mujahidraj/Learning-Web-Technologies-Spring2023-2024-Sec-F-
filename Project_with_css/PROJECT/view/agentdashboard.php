@@ -1,58 +1,29 @@
-<?php
-
-
-if(!isset($_COOKIE['flag'])){
-    header('location: agentlogin.php');
-}
-?>
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Agent Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../design/design_agentdashboard.css">
 </head>
 <body>
-<form action="../controller/agentproperty_search.php" method="post">
-<table width="100%" cellspacing="0" cellpadding="5">
-    <tr>
-        <td>
-            <table>
-                <tr>
-                    <td>
-                        <a href="dashboard.php"><img src="logos/company.jpg" alt="Company Logo"></a>
-                    </td>
-                </tr>
-            </table>
-        </td>
-        
-        <td>
-            <table
-            ><tr>
-                <td><h4>Logged In as Agent</h4>
-                    <input type="text" name="search" id=""placeholder="search for client">
-                    <input type="submit" value="Search">
-            </td>
-            </tr>
-        </table>
-    </td>
-        <td>
-            <table>
-                <tr>
-                    <td> <h4>View Option</h4>
-                    <select name="View Navigation">
-                        <option name=""><a href="dashboard_home.php">Grid view</a></option>
-                        <option name=""><a href="property_whitelist.php">List View</a></option>
-                        <option name=""><a href="analytics.php">Content View</a></option>
-                    </select></td>
-                </tr>
-            </table>
-        </td>
-        <td>
-            <table>
-                <tr>
-                    <td>
-                    <h4>Property Management</h4>
+    <form action=""></form>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logos/logo.png" alt="Logo">
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Search Client">
+                <a href="agent_search.php"><input type="button" value="Search Client"></a>
+                <div class="dropdowns">
+                    <select name="Profile Navigation">
+                        <option value="">Profile Option</option>
+                        <option name=""><a href="dashboard_home.php">View Profile</a></option>
+                        <option name=""><a href="property_whitelist.php">Edit Profile</a></option>
+                        <option name=""><a href="analytics.php">Agent Friend</a></option>
+                        <option name=""><a href="tasks.php">Client Friend</a></option>
+                    </select>
                     <select name="Dashboard Navigation" onchange="window.location.href=this.value;">
                         <option name="" value="agentdashboard.php">Home</option>
                         <option name="" value="agentproperties_listing.php">Property List</option>
@@ -60,103 +31,86 @@ if(!isset($_COOKIE['flag'])){
                         <option name="" value="agent-property-management/view/add_properties.php">Add Property</option>
                         <option name="" value="agentproperties_listing.php">Delete Property</option>
                     </select>
-                        </td>
-                </tr>
-            </table>
-        </td>
-        <td>
-            <table>
-                <tr>
-                    <td>
-                        <h4>Profile Option</h4>
-                    <select name="Profile Navigation">
-                        <option name=""><a href="dashboard_home.php">View Profile</a></option>
-                        <option name=""><a href="property_whitelist.php">Edit Profile</a></option>
-                        <option name=""><a href="analytics.php">Agent Friend</a></option>
-                        <option name=""><a href="tasks.php">Client Friend</a></option>
-                    </select></td>
-                </tr>
-            </table>
-        </td>
-        <td>
-            <table>
-                <tr>
-                    <td><h4>Properties List</h4>
-                        <select name="Property List">
-                        <option name="">Aziz Villa</option>
-                        <option name="">Sopnonir</option>
-                        <option name="">Ahmed Nir</option>
-                        <option name="">Santineketon</option>
+
+                    <select name="View Navigation">
+                    <option value="">View Navigation</option>
+                        <option name=""><a href="dashboard_home.php">Grid view</a></option>
+                        <option name=""><a href="property_whitelist.php">List View</a></option>
+                        <option name=""><a href="analytics.php">Content View</a></option>
                     </select>
+
+                    <select name="Dashboard Navigation">
+                        <option value="">Activity Option</option>
+                        <option name=""><a href="dashboard_home.php">Home</a></option>
+                        <option name=""><a href="property_whitelist.php">Whitelist</a></option>
+                        <option name=""><a href="analytics.php">Analytics</a></option>
+                        <option name=""><a href="tasks.php">Activity Log</a></option>
                         
-                    </td>
-                </tr>
-            </table>
-        </td>
-        <td>
-            <table>
-                <tr>
-                    <td>
-                    
-                    <a href="dashboard.php"><img src="logos/Notify.png" alt="Massage/Notication Logo"></a>
-                    </td>
-                </tr>
-            </table>
-        </td>
-        <td>
-            <table>
-                <tr>
-                    <td><a href="help _and_support.php"><img src="logos/support.png" alt="Help/support Logo"></a></td>
-                </tr>
-            </table>
-        </td>
-        <td>
-            <table>
-                <tr>
-                    <td> <a href="dashboard.php"><img src="logos/settings.png" alt="Settings Logo"></a>
-                    </td>
-                </tr>
-            </table>
-        </td>
-        <td>
-            <table>
-                <tr>
-                    <td><a href="../controller/agentlogout.php"><img src="logos/logout.png" alt="logout Logo">
-                </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-</table>
-<hr>
-<div>
-<table width="15%" border="1" cellpadding="5" cellspacing="0">
-    <tr>
-        <td>
-        <input type="text" name="search" id="" placeholder="search">
-                        <input type="submit" value="search"><br><br>
-            <a href="agentdashboard.php">Dashboard Overview</a><br><br>
-            <a href="map.php">Office Location</a><br><br>
-            <a href="agentproperties_listing.php">Saved Property</a><br><br>
-            <a href="agent_search.php">Agent Contacts</a><br><br>
-            <a href="#Task and Reminder">Appointment Scheduler</a><br><br>
-            <a href="#profile_settings">Profile Settings</a><br><br>
-            <a href="help _and_support.php">Help and Support</a><br><br>
-            <a href="../controller/agentlogout.php">Logout</a><br><br><br><br><br><br><br><br>
-        </td>
-    </tr>
-</table>
-<hr>
+                    </select>
+                </div>
+            </div>
+            <div class="user-options">
+            <a href="#" id="notification"> Notification</a>
+                <a href="help _and_support.php" id="help"> Customer Support</a>
+                <a href="#" id="settings">Settings</a>
+                <a href="../controller/clientlogout.php" id="contact us">Contact Us</a>
+            </div>
+        </div>
+    </header>
+    <form action="../controller/property_search.php">
+    <div class="sidebar">
+       
+        <div class="search-sidebar">
+        <input type="text" name="search" id="" placeholder="Search for property">
+        <input type="submit" value="submit" align="center"><br><br>
+        </div>
+        </form>
+        
+        <ul class="sidebar-menu">
+            <li><a href="agentdashboard.php">Dashboard Overview</a></li>
+            <li><a href="map.php">Office Location</a></li>
+            <li><a href="agentproperties_listing.php">Listed Properties</a></li>
+            <li><a href="Help _and_support.php">Help And Supports</a></li>
+            <li><a href="agent_search.php">Agent View</a></li>
+            <li><a href="#">Appointment Scheduler</a></li>
+            <li><a href="#">Profile Settings</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="../controller/agentlogout.php">Agent Logout</a></li>
+        </ul>
+    </div>
 
-
-            <footer align="center">
-                <p>&copy; 2021 Real Estate. All rights reserved.</p>
-            </footer>
+    <main>
+        <div class="container" align="center">
+            <h1>Welcome to the Dashboard</h1>
+<img src="logos/property1.jpg" alt="">
+<h3 Align="center">Raj's Kingdom</h3>
+<p>Step into the majestic realm of Raj's Kingdom, where grandeur meets tranquility in every corner. This sprawling estate boasts palatial architecture, adorned with intricate detailing and opulent finishes throughout. From the magnificent foyer to the luxurious living spaces, every room exudes elegance and sophistication. Outdoor amenities include lush gardens, sparkling fountains, and a private pool, creating a serene oasis fit for royalty. With its regal charm and unparalleled beauty, Raj's Kingdom offers a lifestyle of unparalleled luxury and refinement.</p>
 
 
 
-</div>
-</form>
+<img src="logos/property2.jpg" alt="" width="60%">
+<h3>Mayad Palace</h3>
+<p>Discover comfort and convenience in this charming Mayad's Palace with an inviting open-concept layout. The modern kitchen is perfect for culinary endeavors, while the serene master bedroom offers relaxation. Enjoy the landscaped backyard oasis for outdoor entertainment. Conveniently located near schools, parks, and shopping centers, with easy highway access. Don't miss out on this perfect blend of comfort and Mayad's Palace living.</p>
+        </div>
+    </main>
 
+    <footer>
+        <div class="container">
+        <div class="class">
+        <h2>About Us</h2>
+        <p>At our real estate company, we prioritize personalized service, ensuring every client receives tailored solutions to meet their unique needs. With a deep understanding of the market trends and a commitment to transparency, we guide our clients through every step of the buying, selling, or renting process. Our team's dedication to integrity and excellence consistently results in successful transactions and satisfied customers.</p>
+    </div>
+
+    <div>
+        <h2>Contact Us</h2>
+        <p>Email  : info@royalestate.bd</p>
+        <p>Phone  : +8801641621584</p>
+        <p>Address: Kuratoli Bazar, Kuril Bisso Road, Dhaka, Bangladesh</p>
+    </div>
+    <hr>
+            <p><b>&copy; 2024 Your Company. All rights reserved.</b></p>
+        </div>
+    </footer>
+    </form>
 </body>
 </html>
