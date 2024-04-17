@@ -48,7 +48,7 @@ h4{
     }
     .search input[type="button"]{
         padding: 8px 20px;
-        background-color: #4CAF50;
+        background-color: #af4c4c;
         color: white;
         border: none;
         margin-bottom: 10px;
@@ -72,7 +72,7 @@ background-color: #564caf;
 }
 .search-sidebar input[type="submit"]{
     padding: 8px 20px;
-    background-color: #4CAF50;
+    background-color: #af4c4c;
     color: white;
     border: none;
     margin-bottom: 10px;
