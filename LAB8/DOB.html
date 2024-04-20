@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Validation</title>
+</head>
+<body>
+    
+    <h1>Date Validation</h1>
+
+    <form id="dateForm" onsubmit="return validateDate()">
+        <fieldset>
+            <legend>Enter Date</legend>
+            <input type="text" name="date" id="date" placeholder="DD/MM/YYYY" onkeyup="validateDate()" />
+        </fieldset>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateDate() {
+            let dateInput = document.getElementById('date').value.trim();
+            let obj = document.getElementsByTagName('h1')[0];
+
+            if (dateInput === "") {
+                obj.innerHTML = "Date cannot be empty";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            let dateRegex = /^(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/(19\d\d|20(?:0[0-9]|1[0-6]))$/;
+            if (!dateRegex.test(dateInput)) {
+                obj.innerHTML = "Invalid date format or out of range";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            obj.style.color = 'black';
+            obj.innerHTML = "Date submitted successfully!";
+            return true;
+        }
+    </script>
+</body>
+</html>

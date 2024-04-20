@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email</title>
+</head>
+<body>
+  
+    <form id="emailForm" onsubmit="return validateEmail()">
+        <fieldset>
+    <h4>Email Validation Example</h4>
+
+    
+
+        <input type="text" name="email" id="email" placeholder="Enter your email" onkeyup="validateEmail()" />
+        <input type="submit" value="Submit">
+    </fieldset>
+    </form>
+
+    <script>
+        function validateEmail() {
+            let emailInput = document.getElementById('email').value.trim();
+            let obj = document.getElementsByTagName('h4')[0];
+
+            if (emailInput === "") {
+                obj.innerHTML = "Email cannot be empty";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput)) {
+                obj.innerHTML = "Invalid email address";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            obj.style.color = 'black';
+            obj.innerHTML = emailInput;
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Selection</title>
+</head>
+<body>
+    
+    <h4>Gender Selection</h4>
+
+    <form id="genderForm" onsubmit="return validateGender()">
+        <fieldset>
+            <legend>Select your gender</legend>
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+            <label><input type="radio" name="gender" value="other"> Other</label>
+        </fieldset>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateGender() {
+            let genderInputs = document.querySelectorAll('input[name="gender"]:checked');
+            let obj = document.getElementsByTagName('h4')[0];
+
+            if (genderInputs.length === 0) {
+                obj.innerHTML = "Please select a gender";
+                obj.style.color = 'red';
+                return false;
+            }
+
+            obj.style.color = 'black';
+            obj.innerHTML = "Gender selected successfully!";
+            return true;
+        }
+    </script>
+</body>
+</html>
